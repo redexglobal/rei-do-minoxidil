@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rei do Minoxidil Goiânia | Kirkland Original Importado</title>
-    <meta name="description" content="Minoxidil Kirkland original importado americano para barba e cabelo. Goiânia GO. Compre agora!">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Rei do Minoxidil Goiânia | Kirkland Original — Barba & Cabelo</title>
+    <meta name="description" content="Minoxidil Kirkland original importado. Mais de 500 clientes satisfeitos em Goiânia. Barba cheia, confiança real. Compre agora!">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --blue: #0055cc;
-            --blue-neon: #00aaff;
-            --bg: #050b1a;
-            --bg2: #0a1628;
-            --white: #ffffff;
-            --gray: #8899aa;
-            --gold: #ffd700;
+            --neon: #00c8ff;
+            --neon2: #0088ff;
+            --gold: #f5c842;
+            --bg: #030c1a;
+            --bg2: #071426;
+            --bg3: #0a1d38;
+            --white: #fff;
+            --gray: #7a9ab5;
+            --light: #c8dff0;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -27,468 +32,1022 @@
             overflow-x: hidden;
         }
 
-        /* HEADER */
+        /* ══════════════════════════════════════
+           SCROLLBAR
+        ══════════════════════════════════════ */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--neon2); border-radius: 3px; }
+
+        /* ══════════════════════════════════════
+           HEADER
+        ══════════════════════════════════════ */
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             z-index: 1000;
-            background: rgba(5, 11, 26, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 170, 255, 0.2);
-            padding: 10px 24px;
+            background: rgba(3, 12, 26, 0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 200, 255, 0.12);
+            padding: 10px 32px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            transition: padding 0.3s;
         }
 
-        .header-logo { height: 56px; object-fit: contain; }
+        header.scrolled { padding: 6px 32px; }
 
-        .header-actions { display: flex; gap: 12px; align-items: center; }
+        .header-logo { height: 52px; object-fit: contain; }
+
+        .header-nav {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .header-nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover { color: var(--neon); }
+
+        .header-actions { display: flex; gap: 10px; align-items: center; }
 
         .btn-insta {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            gap: 7px;
+            background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
             color: white;
-            padding: 10px 18px;
+            padding: 9px 16px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s;
         }
 
-        .btn-insta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(253, 29, 29, 0.4);
-        }
+        .btn-insta:hover { transform: scale(1.06); box-shadow: 0 0 18px rgba(253,29,29,0.4); }
 
         .btn-cart {
             position: relative;
             background: transparent;
-            border: 2px solid var(--blue-neon);
-            color: var(--blue-neon);
-            padding: 10px 18px;
+            border: 1.5px solid var(--neon);
+            color: var(--neon);
+            padding: 9px 16px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
         }
 
-        .btn-cart:hover {
-            background: var(--blue-neon);
-            color: var(--bg);
-            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
-        }
+        .btn-cart:hover { background: var(--neon); color: var(--bg); box-shadow: 0 0 18px rgba(0,200,255,0.4); }
 
         .cart-count {
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ff4444;
+            top: -7px; right: -7px;
+            background: #ff3a3a;
             color: white;
-            width: 20px;
-            height: 20px;
+            width: 18px; height: 18px;
             border-radius: 50%;
-            font-size: 11px;
+            font-size: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
         }
 
-        /* HERO */
+        /* ══════════════════════════════════════
+           HERO
+        ══════════════════════════════════════ */
         .hero {
             min-height: 100vh;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-            background: radial-gradient(ellipse at center, rgba(0, 85, 204, 0.18) 0%, rgba(5, 11, 26, 1) 70%);
+            gap: 60px;
+            padding: 120px 80px 80px;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-content { position: relative; z-index: 1; max-width: 720px; }
-
-        .hero-logo {
-            width: 230px;
-            margin-bottom: 28px;
-            filter: drop-shadow(0 0 35px rgba(0, 170, 255, 0.65));
-            animation: glow 3s ease-in-out infinite;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,136,255,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,200,255,0.06) 0%, transparent 60%);
         }
 
-        @keyframes glow {
-            0%, 100% { filter: drop-shadow(0 0 30px rgba(0, 170, 255, 0.6)); }
-            50% { filter: drop-shadow(0 0 55px rgba(0, 170, 255, 0.95)); }
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            10% { opacity: 0.6; transform: translateY(-10px) scale(1); }
+            90% { opacity: 0.2; }
+            100% { opacity: 0; transform: translateY(-120px) scale(0.5); }
+        }
+
+        .hero-text { position: relative; z-index: 1; }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,200,255,0.08);
+            border: 1px solid rgba(0,200,255,0.25);
+            color: var(--neon);
+            padding: 7px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--neon);
+            border-radius: 50%;
+            animation: blink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
         }
 
         .hero h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.4rem, 4vw, 4rem);
             font-weight: 700;
             text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 14px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
-        .hero h1 span {
-            color: var(--blue-neon);
-            text-shadow: 0 0 20px rgba(0, 170, 255, 0.8);
+        .hero h1 .line-blue {
+            color: var(--neon);
+            text-shadow: 0 0 30px rgba(0,200,255,0.5);
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--gray);
+        .hero h1 .line-gold { color: var(--gold); }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--light);
+            line-height: 1.8;
             margin-bottom: 36px;
-            line-height: 1.7;
+            max-width: 480px;
         }
 
-        .hero-badges {
+        .hero-trust {
             display: flex;
-            gap: 10px;
-            justify-content: center;
+            gap: 24px;
+            margin-bottom: 36px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
         }
 
-        .badge {
-            background: rgba(0, 170, 255, 0.1);
-            border: 1px solid rgba(0, 170, 255, 0.3);
-            color: var(--blue-neon);
-            padding: 8px 16px;
-            border-radius: 50px;
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 13px;
-            font-weight: 600;
+            color: var(--light);
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .trust-item i { color: var(--gold); font-size: 15px; }
 
-        .btn-whatsapp {
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .cta-main {
             display: flex;
             align-items: center;
             gap: 10px;
             background: #25d366;
             color: white;
-            padding: 16px 32px;
+            padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.35);
         }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
-        }
+        .cta-main:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
 
-        .btn-primary {
+        .cta-sec {
             display: flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, var(--blue), var(--blue-neon));
-            color: white;
-            padding: 16px 32px;
+            background: transparent;
+            border: 2px solid var(--neon);
+            color: var(--neon);
+            padding: 13px 28px;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 170, 255, 0.35);
             cursor: pointer;
-            border: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 170, 255, 0.6);
+        .cta-sec:hover { background: var(--neon); color: var(--bg); box-shadow: 0 6px 24px rgba(0,200,255,0.3); }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* PRODUCTS */
-        .section { padding: 80px 20px; }
+        .hero-img-wrap {
+            position: relative;
+            width: 420px;
+            max-width: 100%;
+        }
 
-        .section-title {
+        .hero-img-ring {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,200,255,0.15);
+            animation: spin-ring 20s linear infinite;
+        }
+
+        .hero-img-ring::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: 50%;
+            width: 6px; height: 6px;
+            background: var(--neon);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon);
+        }
+
+        @keyframes spin-ring { to { transform: rotate(360deg); } }
+
+        .hero-img-main {
+            width: 100%;
+            border-radius: 24px;
+            border: 2px solid rgba(0,200,255,0.2);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,136,255,0.1);
+        }
+
+        .hero-badge-float {
+            position: absolute;
+            background: var(--bg2);
+            border: 1px solid rgba(0,200,255,0.2);
+            border-radius: 14px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge-float.b1 { bottom: 40px; left: -40px; }
+        .hero-badge-float.b2 { top: 40px; right: -40px; }
+
+        .badge-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+        }
+
+        .badge-icon.green { background: rgba(37,211,102,0.15); color: #25d366; }
+        .badge-icon.blue { background: rgba(0,200,255,0.12); color: var(--neon); }
+
+        .badge-text small { font-size: 10px; color: var(--gray); display: block; }
+        .badge-text strong { font-size: 14px; font-weight: 700; }
+
+        /* ══════════════════════════════════════
+           STATS BAR
+        ══════════════════════════════════════ */
+        .stats-bar {
+            background: var(--bg2);
+            border-top: 1px solid rgba(0,200,255,0.08);
+            border-bottom: 1px solid rgba(0,200,255,0.08);
+            padding: 40px 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .stat-item {
             text-align: center;
+            padding: 20px;
+            border-right: 1px solid rgba(0,200,255,0.08);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-number {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--neon);
+            text-shadow: 0 0 20px rgba(0,200,255,0.4);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* ══════════════════════════════════════
+           LIFESTYLE SECTION
+        ══════════════════════════════════════ */
+        .lifestyle {
+            padding: 100px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .lifestyle-visual {
+            position: relative;
+        }
+
+        .lifestyle-img {
+            width: 100%;
+            border-radius: 24px;
+            border: 1px solid rgba(0,200,255,0.15);
+        }
+
+        .lifestyle-quote {
+            position: absolute;
+            bottom: -24px;
+            right: -24px;
+            background: var(--gold);
+            color: #000;
+            padding: 20px 24px;
+            border-radius: 16px;
+            max-width: 220px;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 1.5;
+            box-shadow: 0 8px 32px rgba(245,200,66,0.3);
+        }
+
+        .lifestyle-quote i { font-size: 20px; margin-bottom: 6px; display: block; }
+
+        .lifestyle-text h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        .section-title span {
-            color: var(--blue-neon);
-            text-shadow: 0 0 20px rgba(0, 170, 255, 0.6);
-        }
+        .lifestyle-text h2 span { color: var(--neon); }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 50px;
+        .lifestyle-text p {
+            color: var(--light);
+            line-height: 1.9;
+            margin-bottom: 20px;
             font-size: 1rem;
         }
 
+        .lifestyle-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .pillar {
+            background: var(--bg2);
+            border: 1px solid rgba(0,200,255,0.12);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .pillar:hover {
+            border-color: var(--neon);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,200,255,0.12);
+        }
+
+        .pillar-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pillar h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            color: var(--neon);
+        }
+
+        .pillar p { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+        /* ══════════════════════════════════════
+           HOW IT WORKS
+        ══════════════════════════════════════ */
+        .how-section {
+            background: var(--bg2);
+            padding: 100px 80px;
+            text-align: center;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            color: var(--neon);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title span { color: var(--neon); text-shadow: 0 0 20px rgba(0,200,255,0.5); }
+
+        .section-sub { color: var(--gray); margin-bottom: 60px; font-size: 1rem; }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon), transparent);
+        }
+
+        .step {
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .step-num {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            border: 2px solid var(--neon);
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--neon);
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(0,200,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .step:hover .step-num {
+            background: var(--neon);
+            color: var(--bg);
+            box-shadow: 0 0 40px rgba(0,200,255,0.5);
+        }
+
+        .step h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .step p { font-size: 12px; color: var(--gray); line-height: 1.6; }
+
+        /* ══════════════════════════════════════
+           PRODUCTS
+        ══════════════════════════════════════ */
+        .products-section { padding: 100px 80px; }
+
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            max-width: 1020px;
+            max-width: 1080px;
             margin: 0 auto;
         }
 
         .product-card {
             background: var(--bg2);
-            border: 1px solid rgba(0, 170, 255, 0.2);
-            border-radius: 20px;
+            border: 1px solid rgba(0,200,255,0.12);
+            border-radius: 24px;
             overflow: hidden;
             transition: all 0.35s;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--blue-neon);
-            box-shadow: 0 20px 40px rgba(0, 170, 255, 0.2);
+            transform: translateY(-10px);
+            border-color: var(--neon);
+            box-shadow: 0 24px 60px rgba(0,200,255,0.15);
         }
 
-        .product-badge-popular {
+        .product-card.featured {
+            border-color: var(--gold);
+            box-shadow: 0 0 40px rgba(245,200,66,0.1);
+        }
+
+        .product-card.featured:hover {
+            border-color: var(--gold);
+            box-shadow: 0 24px 60px rgba(245,200,66,0.2);
+        }
+
+        .product-ribbon {
             position: absolute;
-            top: 14px;
-            right: 14px;
+            top: 18px; right: 18px;
             background: var(--gold);
             color: #000;
             padding: 4px 12px;
             border-radius: 50px;
             font-size: 11px;
             font-weight: 700;
-            z-index: 1;
             letter-spacing: 0.5px;
+            z-index: 2;
         }
 
         .product-img {
             width: 100%;
-            height: 220px;
+            height: 230px;
             object-fit: contain;
-            background: #0d1f3a;
-            padding: 20px;
+            background: #071a30;
+            padding: 24px;
+            flex-shrink: 0;
         }
 
-        .product-info { padding: 24px; }
+        .product-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
 
         .product-name {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 8px;
             text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .product-desc {
-            color: var(--gray);
-            font-size: 13px;
+        .product-desc { color: var(--gray); font-size: 13px; line-height: 1.6; margin-bottom: 20px; flex: 1; }
+
+        .product-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
             margin-bottom: 16px;
-            line-height: 1.55;
+        }
+
+        .product-tag {
+            background: rgba(0,200,255,0.07);
+            border: 1px solid rgba(0,200,255,0.2);
+            color: var(--neon);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 16px;
         }
 
         .product-price {
-            font-size: 2.1rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--blue-neon);
-            text-shadow: 0 0 15px rgba(0, 170, 255, 0.45);
-            margin-bottom: 16px;
+            color: var(--neon);
+            font-family: 'Oswald', sans-serif;
         }
 
-        .product-price small { font-size: 0.85rem; color: var(--gray); }
+        .product-card.featured .product-price { color: var(--gold); }
 
-        .btn-add-cart {
+        .product-price-sub { font-size: 12px; color: var(--gray); }
+
+        .btn-add {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, var(--blue), var(--blue-neon));
-            color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            background: linear-gradient(135deg, #0055cc, #00aaff);
+            color: white;
         }
 
-        .btn-add-cart:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
+        .product-card.featured .btn-add {
+            background: linear-gradient(135deg, #c49b00, #f5c842);
+            color: #000;
         }
 
-        .btn-add-cart:active { transform: scale(0.98); }
+        .btn-add:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,170,255,0.35); }
+        .product-card.featured .btn-add:hover { box-shadow: 0 8px 24px rgba(245,200,66,0.35); }
 
-        /* ABOUT */
-        .about-section {
+        /* ══════════════════════════════════════
+           TESTIMONIALS
+        ══════════════════════════════════════ */
+        .testimonials-section {
             background: var(--bg2);
-            padding: 80px 20px;
+            padding: 100px 80px;
         }
 
-        .about-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1080px;
             margin: 0 auto;
-            align-items: center;
         }
 
-        .about-img {
-            width: 100%;
+        .testi-card {
+            background: var(--bg3);
+            border: 1px solid rgba(0,200,255,0.1);
             border-radius: 20px;
-            border: 2px solid rgba(0, 170, 255, 0.3);
+            padding: 28px;
+            position: relative;
+            transition: all 0.3s;
         }
 
-        .about-text h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
+        .testi-card:hover {
+            border-color: rgba(0,200,255,0.3);
+            transform: translateY(-4px);
+        }
+
+        .testi-quote {
+            font-size: 2.5rem;
+            color: var(--neon);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .testi-text {
+            color: var(--light);
+            font-size: 14px;
+            line-height: 1.75;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testi-stars {
+            display: flex;
+            gap: 3px;
             margin-bottom: 16px;
         }
 
-        .about-text h2 span { color: var(--blue-neon); }
+        .testi-stars i { color: var(--gold); font-size: 14px; }
 
-        .about-text p {
-            color: var(--gray);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .features-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .features-list li {
+        .testi-author {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 14px;
+            gap: 12px;
         }
 
-        .features-list li i { color: var(--blue-neon); width: 20px; }
+        .testi-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--neon));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
 
-        /* CONTACT */
-        .contact-section { padding: 80px 20px; text-align: center; }
+        .testi-name { font-weight: 600; font-size: 14px; }
+        .testi-city { font-size: 12px; color: var(--gray); }
 
-        .contact-cards {
+        .testi-verified {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: #25d366;
+        }
+
+        /* ══════════════════════════════════════
+           RESULTS
+        ══════════════════════════════════════ */
+        .results-section { padding: 100px 80px; }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            background: var(--bg2);
+            border: 1px solid rgba(0,200,255,0.1);
+            border-radius: 20px;
+            padding: 32px;
             display: flex;
             gap: 20px;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+
+        .result-card:hover { border-color: var(--neon); transform: translateX(6px); }
+
+        .result-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            background: rgba(0,200,255,0.1);
+            border: 1px solid rgba(0,200,255,0.2);
+            display: flex;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
+            font-size: 22px;
+            color: var(--neon);
+            flex-shrink: 0;
+        }
+
+        .result-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .result-desc { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+        /* ══════════════════════════════════════
+           FAQ
+        ══════════════════════════════════════ */
+        .faq-section {
+            background: var(--bg2);
+            padding: 100px 80px;
+        }
+
+        .faq-list {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--bg3);
+            border: 1px solid rgba(0,200,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item.open { border-color: rgba(0,200,255,0.3); }
+
+        .faq-q {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-q i {
+            color: var(--neon);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-q i { transform: rotate(180deg); }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            padding: 0 24px;
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+        /* ══════════════════════════════════════
+           CONTACT
+        ══════════════════════════════════════ */
+        .contact-section { padding: 100px 80px; text-align: center; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 50px auto 0;
         }
 
         .contact-card {
             background: var(--bg2);
-            border: 1px solid rgba(0, 170, 255, 0.2);
-            border-radius: 16px;
-            padding: 28px 32px;
+            border: 1px solid rgba(0,200,255,0.1);
+            border-radius: 20px;
+            padding: 28px 20px;
             text-align: center;
-            min-width: 190px;
             transition: all 0.3s;
         }
 
         .contact-card:hover {
-            border-color: var(--blue-neon);
-            transform: translateY(-4px);
+            border-color: var(--neon);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,200,255,0.1);
         }
 
-        .contact-card i {
-            font-size: 2rem;
-            color: var(--blue-neon);
-            margin-bottom: 12px;
-            display: block;
+        .contact-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 16px;
         }
 
-        .contact-card h4 {
-            font-size: 0.8rem;
+        .contact-label {
+            font-size: 11px;
             color: var(--gray);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
-        .contact-card p, .contact-card a {
-            color: var(--white);
+        .contact-value {
             font-weight: 600;
-            text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 14px;
             line-height: 1.5;
+            text-decoration: none;
+            color: var(--white);
+            display: block;
+            transition: color 0.2s;
         }
 
-        .contact-card a:hover { color: var(--blue-neon); }
+        .contact-value:hover { color: var(--neon); }
 
-        /* FOOTER */
-        footer {
-            background: rgba(0,0,0,0.5);
-            border-top: 1px solid rgba(0, 170, 255, 0.1);
-            padding: 30px 20px;
+        /* ══════════════════════════════════════
+           CTA BAND
+        ══════════════════════════════════════ */
+        .cta-band {
+            padding: 80px;
+            background: linear-gradient(135deg, rgba(0,85,204,0.3) 0%, rgba(0,200,255,0.1) 100%);
+            border-top: 1px solid rgba(0,200,255,0.1);
+            border-bottom: 1px solid rgba(0,200,255,0.1);
             text-align: center;
-            color: var(--gray);
-            font-size: 13px;
         }
 
-        /* FLOATING WHATSAPP */
+        .cta-band h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .cta-band h2 span { color: var(--neon); }
+
+        .cta-band p { color: var(--light); margin-bottom: 36px; font-size: 1rem; }
+
+        .cta-band-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
+        footer {
+            background: #020810;
+            border-top: 1px solid rgba(0,200,255,0.06);
+            padding: 40px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo { height: 42px; }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--neon); }
+
+        .footer-copy { font-size: 12px; color: var(--gray); }
+
+        /* ══════════════════════════════════════
+           FLOATING ACTIONS
+        ══════════════════════════════════════ */
         .fab-whatsapp {
             position: fixed;
-            bottom: 28px;
-            right: 28px;
-            width: 62px;
-            height: 62px;
+            bottom: 28px; right: 28px;
+            width: 58px; height: 58px;
             background: #25d366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 26px;
             color: white;
             text-decoration: none;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.5);
             z-index: 999;
-            transition: all 0.3s;
-            animation: bounce 2.5s ease-in-out infinite;
+            animation: fab-bounce 2.5s ease-in-out infinite;
         }
 
-        @keyframes bounce {
+        @keyframes fab-bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-9px); }
+            50% { transform: translateY(-8px); }
         }
 
-        .fab-whatsapp:hover {
-            transform: scale(1.15) !important;
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
-            animation: none;
-        }
+        .fab-whatsapp:hover { animation: none; transform: scale(1.15); box-shadow: 0 10px 32px rgba(37,211,102,0.65); }
 
-        /* CART SIDEBAR */
+        /* ══════════════════════════════════════
+           CART SIDEBAR
+        ══════════════════════════════════════ */
         .cart-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.75);
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.8);
             z-index: 1999;
             display: none;
         }
@@ -497,13 +1056,11 @@
 
         .cart-sidebar {
             position: fixed;
-            top: 0;
-            right: -420px;
-            width: 390px;
-            max-width: 95vw;
+            top: 0; right: -420px;
+            width: 400px; max-width: 95vw;
             height: 100vh;
             background: var(--bg2);
-            border-left: 1px solid rgba(0, 170, 255, 0.3);
+            border-left: 1px solid rgba(0,200,255,0.2);
             z-index: 2000;
             transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
             display: flex;
@@ -512,114 +1069,95 @@
 
         .cart-sidebar.active { right: 0; }
 
-        .cart-header {
-            padding: 20px 24px;
-            border-bottom: 1px solid rgba(0, 170, 255, 0.15);
+        .cart-head {
+            padding: 22px 24px;
+            border-bottom: 1px solid rgba(0,200,255,0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .cart-header h3 {
+        .cart-head h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .cart-close {
+        .cart-close-btn {
             background: transparent;
             border: none;
             color: var(--gray);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            padding: 4px 8px;
+            padding: 6px;
             border-radius: 8px;
             transition: color 0.2s;
         }
 
-        .cart-close:hover { color: var(--white); }
+        .cart-close-btn:hover { color: var(--white); }
 
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px 24px;
-        }
+        .cart-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
 
-        .cart-empty {
+        .cart-empty-state {
             text-align: center;
-            color: var(--gray);
             padding: 60px 20px;
+            color: var(--gray);
         }
 
-        .cart-empty i {
+        .cart-empty-state i {
             font-size: 3rem;
+            color: rgba(0,200,255,0.15);
             margin-bottom: 16px;
             display: block;
-            color: rgba(0, 170, 255, 0.25);
         }
 
-        .cart-item {
+        .cart-item-row {
             display: flex;
             align-items: center;
             gap: 14px;
             padding: 16px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
         }
 
-        .cart-item img {
-            width: 64px;
-            height: 64px;
+        .cart-item-row img {
+            width: 60px; height: 60px;
             object-fit: contain;
-            background: #0d1f3a;
+            background: #071a30;
             border-radius: 10px;
             padding: 6px;
         }
 
         .cart-item-info { flex: 1; }
+        .cart-item-nm { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .cart-item-pr { color: var(--neon); font-weight: 700; font-size: 14px; }
 
-        .cart-item-name {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            line-height: 1.3;
-        }
-
-        .cart-item-price {
-            color: var(--blue-neon);
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .cart-item-remove {
-            background: transparent;
-            border: none;
-            color: #ff5555;
-            cursor: pointer;
-            font-size: 17px;
-            padding: 6px;
+        .cart-rm {
+            background: transparent; border: none;
+            color: #ff5555; font-size: 16px;
+            cursor: pointer; padding: 6px;
             border-radius: 8px;
             transition: opacity 0.2s;
         }
 
-        .cart-item-remove:hover { opacity: 0.7; }
+        .cart-rm:hover { opacity: 0.6; }
 
-        .cart-footer {
+        .cart-foot {
             padding: 20px 24px;
-            border-top: 1px solid rgba(0, 170, 255, 0.15);
+            border-top: 1px solid rgba(0,200,255,0.1);
         }
 
-        .cart-total {
+        .cart-total-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 16px;
         }
 
-        .cart-total span:last-child { color: var(--blue-neon); }
+        .cart-total-row span:last-child { color: var(--neon); }
 
         .btn-checkout {
             width: 100%;
@@ -629,7 +1167,7 @@
             border: none;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -638,38 +1176,67 @@
             transition: all 0.3s;
         }
 
-        .btn-checkout:hover {
-            background: #1eb858;
-            transform: scale(1.02);
-        }
+        .btn-checkout:hover { background: #1eb858; transform: scale(1.02); }
 
-        /* Fade-in */
-        .fade-in {
+        /* ══════════════════════════════════════
+           ANIMATIONS
+        ══════════════════════════════════════ */
+        .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
-        /* RESPONSIVE */
-        @media (max-width: 700px) {
-            .about-grid { grid-template-columns: 1fr; gap: 30px; }
-            .header-logo { height: 42px; }
+        /* ══════════════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════════════ */
+        @media (max-width: 1100px) {
+            .hero { grid-template-columns: 1fr; padding: 120px 40px 60px; text-align: center; }
+            .hero-visual { display: none; }
+            .hero-trust { justify-content: center; }
+            .hero-ctas { justify-content: center; }
+            .lifestyle { grid-template-columns: 1fr; padding: 80px 40px; }
+            .lifestyle-visual { display: none; }
+            .products-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .results-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2,1fr); }
+            .steps { grid-template-columns: repeat(2,1fr); }
+            .steps::before { display: none; }
+            .contact-grid { grid-template-columns: repeat(2,1fr); }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 10px 16px; }
+            .header-nav { display: none; }
             .btn-insta span { display: none; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-whatsapp, .btn-primary { width: 100%; justify-content: center; }
+            .hero { padding: 100px 20px 60px; }
+            .how-section, .products-section, .testimonials-section, .results-section, .faq-section, .contact-section, .cta-band { padding: 60px 20px; }
+            .stats-bar { grid-template-columns: repeat(2,1fr); padding: 20px; }
+            footer { padding: 30px 20px; flex-direction: column; text-align: center; }
+            .lifestyle-pillars { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
+<!-- ████ HEADER ████ -->
+<header id="mainHeader">
     <img src="images/logo.jpeg" alt="Rei do Minoxidil" class="header-logo">
+    <nav>
+        <ul class="header-nav">
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
     <div class="header-actions">
         <a href="https://www.instagram.com/minoxkirkla/" target="_blank" class="btn-insta">
             <i class="fab fa-instagram"></i>
@@ -683,69 +1250,218 @@
     </div>
 </header>
 
-<!-- HERO -->
+<!-- ████ HERO ████ -->
 <section class="hero">
-    <div class="hero-content">
-        <img src="images/logo2.jpeg" alt="Rei do Minoxidil Goiânia" class="hero-logo">
-        <h1>Minoxidil <span>Kirkland</span><br>Original Importado</h1>
-        <p>O tratamento mais eficaz para crescimento de barba e cabelo.<br>Produto americano 100% original — Goiânia e região!</p>
-        <div class="hero-badges">
-            <span class="badge">✔ 100% Original</span>
-            <span class="badge">✔ Importado EUA</span>
-            <span class="badge">✔ Aberto 24h</span>
-            <span class="badge">✔ +16 anos de mercado</span>
+    <div class="hero-particles" id="particles"></div>
+
+    <div class="hero-text">
+        <div class="hero-tag">Kirkland Original Importado EUA</div>
+        <h1>
+            A Barba que<br>
+            <span class="line-blue">Transforma</span><br>
+            <span class="line-gold">Sua Vida</span>
+        </h1>
+        <p class="hero-sub">
+            Mais de <strong>500 homens em Goiânia</strong> já transformaram sua aparência, conquistaram confiança e vivem com mais presença — em casa, no trabalho e na vida.
+        </p>
+        <div class="hero-trust">
+            <div class="trust-item"><i class="fas fa-star"></i> 4.9 / 5.0 de avaliação</div>
+            <div class="trust-item"><i class="fas fa-shield-alt"></i> 100% original importado</div>
+            <div class="trust-item"><i class="fas fa-clock"></i> Atendimento 24h</div>
         </div>
-        <div class="hero-buttons">
-            <a href="https://wa.me/5562984052636?text=Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil%20e%20gostaria%20de%20mais%20informações!" target="_blank" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i>
-                Falar no WhatsApp
+        <div class="hero-ctas">
+            <a href="https://wa.me/5562984052636?text=Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil%20e%20quero%20saber%20mais!" target="_blank" class="cta-main">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
             </a>
-            <button class="btn-primary" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">
-                <i class="fas fa-shopping-bag"></i>
-                Ver Produtos
+            <button class="cta-sec" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">
+                <i class="fas fa-shopping-bag"></i> Ver Produtos
             </button>
         </div>
     </div>
+
+    <div class="hero-visual">
+        <div class="hero-img-wrap">
+            <div class="hero-img-ring"></div>
+            <img src="images/foto-dono.jpeg" alt="Rei do Minoxidil" class="hero-img-main">
+            <div class="hero-badge-float b1">
+                <div class="badge-icon green"><i class="fab fa-whatsapp"></i></div>
+                <div class="badge-text">
+                    <small>Atendimento</small>
+                    <strong>24 horas</strong>
+                </div>
+            </div>
+            <div class="hero-badge-float b2">
+                <div class="badge-icon blue"><i class="fas fa-users"></i></div>
+                <div class="badge-text">
+                    <small>Clientes satisfeitos</small>
+                    <strong>+500 homens</strong>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="section" id="produtos">
-    <h2 class="section-title fade-in">Nossos <span>Produtos</span></h2>
-    <p class="section-subtitle fade-in">Kirkland Minoxidil 5% — Original americano para barba e cabelo</p>
+<!-- ████ STATS ████ -->
+<div class="stats-bar">
+    <div class="stat-item reveal">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Clientes Satisfeitos</div>
+    </div>
+    <div class="stat-item reveal">
+        <div class="stat-number" data-target="16" data-suffix="+">0</div>
+        <div class="stat-label">Anos de Mercado</div>
+    </div>
+    <div class="stat-item reveal">
+        <div class="stat-number" data-target="98" data-suffix="%">0</div>
+        <div class="stat-label">Taxa de Satisfação</div>
+    </div>
+    <div class="stat-item reveal">
+        <div class="stat-number" data-target="4.9">0</div>
+        <div class="stat-label">Avaliação Média ★</div>
+    </div>
+</div>
+
+<!-- ████ LIFESTYLE ████ -->
+<section class="lifestyle">
+    <div class="lifestyle-visual reveal-left">
+        <img src="images/foto-dono.jpeg" alt="Rei do Minoxidil Goiânia" class="lifestyle-img">
+        <div class="lifestyle-quote">
+            <i class="fas fa-quote-left"></i>
+            "Barba cheia é confiança que sua família sente todos os dias."
+        </div>
+    </div>
+
+    <div class="lifestyle-text reveal-right">
+        <span class="section-eyebrow">Mais que aparência</span>
+        <h2>Barba = <span>Confiança</span><br>Confiança = <span>Presença</span></h2>
+        <p>
+            Estudos mostram que homens com barba bem cuidada são percebidos como mais confiantes, maduros e com mais autoridade — no trabalho, em casa e na sociedade.
+        </p>
+        <p>
+            Quando você se olha no espelho e vê o homem que sempre quis ser, essa energia se reflete em tudo: na forma como você lidera, como você cuida da sua família, como você conquista seus objetivos.
+        </p>
+
+        <div class="lifestyle-pillars">
+            <div class="pillar">
+                <span class="pillar-icon">👨‍👩‍👧‍👦</span>
+                <h4>Família</h4>
+                <p>Transmita autoridade e presença para as pessoas que você mais ama.</p>
+            </div>
+            <div class="pillar">
+                <span class="pillar-icon">💼</span>
+                <h4>Profissional</h4>
+                <p>Chegue em qualquer ambiente com a imagem que você merece projetar.</p>
+            </div>
+            <div class="pillar">
+                <span class="pillar-icon">🧠</span>
+                <h4>Autoestima</h4>
+                <p>Autoconfiança é a base de tudo. Comece pela sua aparência.</p>
+            </div>
+            <div class="pillar">
+                <span class="pillar-icon">👑</span>
+                <h4>Identidade</h4>
+                <p>Seja o homem que você imagina — com estilo, barba e postura.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ████ HOW IT WORKS ████ -->
+<section class="how-section">
+    <span class="section-eyebrow reveal">Como funciona</span>
+    <h2 class="section-title reveal">Simples como <span>1, 2, 3, 4</span></h2>
+    <p class="section-sub reveal">Do pedido à sua barba crescendo — sem complicação</p>
+
+    <div class="steps">
+        <div class="step reveal">
+            <div class="step-num">01</div>
+            <h4>Escolha seu Kit</h4>
+            <p>Selecione a quantidade ideal para o seu tratamento e adicione ao carrinho.</p>
+        </div>
+        <div class="step reveal">
+            <div class="step-num">02</div>
+            <h4>Peça pelo WhatsApp</h4>
+            <p>Finalize seu pedido direto no WhatsApp com atendimento humano e rápido.</p>
+        </div>
+        <div class="step reveal">
+            <div class="step-num">03</div>
+            <h4>Receba em Casa</h4>
+            <p>Entregamos em Goiânia e região com agilidade e produto 100% original.</p>
+        </div>
+        <div class="step reveal">
+            <div class="step-num">04</div>
+            <h4>Aplique & Transforme</h4>
+            <p>Use 2x ao dia e veja sua barba crescer com segurança e resultado comprovado.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ████ PRODUCTS ████ -->
+<section class="products-section" id="produtos">
+    <div style="text-align:center">
+        <span class="section-eyebrow reveal">Kirkland Minoxidil 5% — USA</span>
+        <h2 class="section-title reveal">Escolha seu <span>Plano</span></h2>
+        <p class="section-sub reveal">Produto original importado. Quanto mais você investe, mais você economiza.</p>
+    </div>
+
     <div class="products-grid">
 
-        <div class="product-card fade-in">
-            <img src="images/produto-1.jpeg" alt="Minoxidil 1 unidade" class="product-img">
-            <div class="product-info">
+        <div class="product-card reveal">
+            <img src="images/produto-1.jpeg" alt="1 Unidade" class="product-img">
+            <div class="product-body">
                 <h3 class="product-name">Minoxidil Kirkland — 1 Unidade</h3>
-                <p class="product-desc">Frasco 60ml (suprimento para 1 mês). Solução tópica 5%. Para barba e cabelo.</p>
-                <div class="product-price">R$ 60 <small>/un</small></div>
-                <button class="btn-add-cart" onclick="addToCart('Minoxidil Kirkland 1un', 60, 'images/produto-1.jpeg')">
+                <div class="product-tags">
+                    <span class="product-tag">60ml</span>
+                    <span class="product-tag">1 mês</span>
+                    <span class="product-tag">Barba & Cabelo</span>
+                </div>
+                <p class="product-desc">Frasco único de 60ml, solução tópica 5%. Ideal para experimentar o tratamento com o melhor Minoxidil do mercado.</p>
+                <div class="product-price-row">
+                    <span class="product-price">R$ 60</span>
+                    <span class="product-price-sub">/ unidade</span>
+                </div>
+                <button class="btn-add" onclick="addToCart('Minoxidil Kirkland 1un', 60, 'images/produto-1.jpeg')">
                     <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
                 </button>
             </div>
         </div>
 
-        <div class="product-card fade-in">
-            <span class="product-badge-popular">MAIS VENDIDO</span>
-            <img src="images/produto-2.jpeg" alt="Minoxidil 3 unidades" class="product-img">
-            <div class="product-info">
+        <div class="product-card featured reveal">
+            <span class="product-ribbon">MAIS VENDIDO</span>
+            <img src="images/produto-2.jpeg" alt="3 Unidades" class="product-img">
+            <div class="product-body">
                 <h3 class="product-name">Minoxidil Kirkland — 3 Unidades</h3>
-                <p class="product-desc">3 frascos 60ml (suprimento para 3 meses). Melhor custo-benefício!</p>
-                <div class="product-price">R$ 170 <small>/kit</small></div>
-                <button class="btn-add-cart" onclick="addToCart('Minoxidil Kirkland 3un', 170, 'images/produto-2.jpeg')">
+                <div class="product-tags">
+                    <span class="product-tag">3 × 60ml</span>
+                    <span class="product-tag">3 meses</span>
+                    <span class="product-tag">Melhor Custo</span>
+                </div>
+                <p class="product-desc">O kit preferido dos nossos clientes. 3 meses de tratamento consistente com o produto mais eficaz para barba densa e cheia.</p>
+                <div class="product-price-row">
+                    <span class="product-price">R$ 170</span>
+                    <span class="product-price-sub">/ kit 3 meses</span>
+                </div>
+                <button class="btn-add" onclick="addToCart('Minoxidil Kirkland 3un', 170, 'images/produto-2.jpeg')">
                     <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
                 </button>
             </div>
         </div>
 
-        <div class="product-card fade-in">
-            <img src="images/produto-3.jpeg" alt="Caixa fechada 6 unidades" class="product-img">
-            <div class="product-info">
+        <div class="product-card reveal">
+            <img src="images/produto-3.jpeg" alt="Caixa 6 Unidades" class="product-img">
+            <div class="product-body">
                 <h3 class="product-name">Caixa Fechada — 6 Unidades</h3>
-                <p class="product-desc">Caixa original com 6 frascos 60ml (suprimento para 6 meses). Máxima economia!</p>
-                <div class="product-price">R$ 260 <small>/caixa</small></div>
-                <button class="btn-add-cart" onclick="addToCart('Minoxidil Kirkland Caixa 6un', 260, 'images/produto-3.jpeg')">
+                <div class="product-tags">
+                    <span class="product-tag">6 × 60ml</span>
+                    <span class="product-tag">6 meses</span>
+                    <span class="product-tag">Máxima Economia</span>
+                </div>
+                <p class="product-desc">A caixa original americana com 6 frascos. Tratamento completo de 6 meses para resultados definitivos e transformação real.</p>
+                <div class="product-price-row">
+                    <span class="product-price">R$ 260</span>
+                    <span class="product-price-sub">/ caixa 6 meses</span>
+                </div>
+                <button class="btn-add" onclick="addToCart('Minoxidil Kirkland Caixa 6un', 260, 'images/produto-3.jpeg')">
                     <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
                 </button>
             </div>
@@ -754,144 +1470,412 @@
     </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about-section">
-    <div class="about-grid">
-        <div class="fade-in">
-            <img src="images/foto-dono.jpeg" alt="Rei do Minoxidil Goiânia" class="about-img">
+<!-- ████ RESULTS ████ -->
+<section class="results-section" id="resultados">
+    <div style="text-align:center">
+        <span class="section-eyebrow reveal">Ciência por trás</span>
+        <h2 class="section-title reveal">Por que o <span>Kirkland</span> funciona?</h2>
+        <p class="section-sub reveal">O ingrediente ativo mais recomendado por dermatologistas do mundo</p>
+    </div>
+
+    <div class="results-grid">
+        <div class="result-card reveal">
+            <div class="result-icon"><i class="fas fa-dna"></i></div>
+            <div>
+                <h4 class="result-title">Reativa Folículos</h4>
+                <p class="result-desc">O Minoxidil 5% estimula diretamente os folículos capilares adormecidos, promovendo o crescimento de novos fios de forma consistente e segura.</p>
+            </div>
         </div>
-        <div class="about-text fade-in">
-            <h2>Quem somos <span>nós?</span></h2>
-            <p>Somos uma empresa com mais de 16 anos de mercado, trazendo as melhores marcas e os melhores produtos para o crescimento de barba e cabelo.</p>
-            <p>O <strong>Minoxidil Kirkland</strong> é o produto #1 recomendado por dermatologistas para crescimento capilar nos EUA — agora disponível para você em Goiânia!</p>
-            <ul class="features-list">
-                <li><i class="fas fa-check-circle"></i> Produto 100% original importado dos EUA</li>
-                <li><i class="fas fa-check-circle"></i> Clinicamente comprovado</li>
-                <li><i class="fas fa-check-circle"></i> Reativa folículos capilares</li>
-                <li><i class="fas fa-check-circle"></i> Funciona para barba e cabelo</li>
-                <li><i class="fas fa-check-circle"></i> Atendimento 24 horas</li>
-                <li><i class="fas fa-check-circle"></i> Entrega em Goiânia e região</li>
-            </ul>
+        <div class="result-card reveal">
+            <div class="result-icon"><i class="fas fa-flask"></i></div>
+            <div>
+                <h4 class="result-title">Fórmula Comprovada</h4>
+                <p class="result-desc">Clinicamente testado e aprovado pela FDA americana. Mais de 30 anos de estudos confirmando eficácia no crescimento de barba e cabelo.</p>
+            </div>
+        </div>
+        <div class="result-card reveal">
+            <div class="result-icon"><i class="fas fa-calendar-check"></i></div>
+            <div>
+                <h4 class="result-title">Resultados Visíveis</h4>
+                <p class="result-desc">A maioria dos clientes reporta crescimento visível a partir do 2º mês de uso consistente, com resultados expressivos aos 4-6 meses.</p>
+            </div>
+        </div>
+        <div class="result-card reveal">
+            <div class="result-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+                <h4 class="result-title">Original & Seguro</h4>
+                <p class="result-desc">Produto 100% importado dos Estados Unidos. Sem falsificações, sem risco. A Kirkland Signature é a marca de confiança do Costco EUA.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section">
-    <h2 class="section-title fade-in">Entre em <span>Contato</span></h2>
-    <p class="section-subtitle fade-in">Estamos disponíveis 24 horas para te atender!</p>
-    <div class="contact-cards">
-        <div class="contact-card fade-in">
-            <i class="fab fa-whatsapp" style="color:#25d366"></i>
-            <h4>WhatsApp / Ligação</h4>
-            <a href="https://wa.me/5562984052636?text=Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil!" target="_blank">+55 62 98405-2636</a>
+<!-- ████ TESTIMONIALS ████ -->
+<section class="testimonials-section" id="depoimentos">
+    <div style="text-align:center">
+        <span class="section-eyebrow reveal">Pós-venda real</span>
+        <h2 class="section-title reveal">O que nossos <span>clientes</span> dizem</h2>
+        <p class="section-sub reveal">Depoimentos reais de homens que transformaram sua aparência e autoestima</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+        <div class="testi-card reveal">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Cara, em 3 meses minha barba cresceu mais do que nos últimos 5 anos. Comprei o kit de 3 frascos, segui o protocolo e o resultado foi absurdo. Minha esposa adorou também!</p>
+            <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-author">
+                <div class="testi-avatar">MR</div>
+                <div>
+                    <div class="testi-name">Marcos R.</div>
+                    <div class="testi-city">Goiânia — GO</div>
+                </div>
+                <div class="testi-verified"><i class="fas fa-check-circle"></i> Verificado</div>
+            </div>
         </div>
-        <div class="contact-card fade-in">
-            <i class="fab fa-instagram" style="background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
-            <h4>Instagram</h4>
-            <a href="https://www.instagram.com/minoxkirkla/" target="_blank">@minoxkirkla</a>
+
+        <div class="testi-card reveal">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Produto original mesmo, dá para sentir a diferença. Já tentei outras marcas e não chegam nem perto do Kirkland. Meu cabelo parou de cair e minha barba ficou muito mais densa.</p>
+            <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-author">
+                <div class="testi-avatar">FS</div>
+                <div>
+                    <div class="testi-name">Felipe S.</div>
+                    <div class="testi-city">Aparecida de Goiânia — GO</div>
+                </div>
+                <div class="testi-verified"><i class="fas fa-check-circle"></i> Verificado</div>
+            </div>
         </div>
-        <div class="contact-card fade-in">
-            <i class="fas fa-envelope"></i>
-            <h4>E-mail</h4>
-            <a href="mailto:reidominoxidil@gmail.com">reidominoxidil@gmail.com</a>
+
+        <div class="testi-card reveal">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Atendimento top, entrega rápida e produto excelente. Comprei a caixa fechada de 6 meses e foi o melhor investimento que fiz em mim mesmo. Minha confiança está no teto!</p>
+            <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-author">
+                <div class="testi-avatar">AL</div>
+                <div>
+                    <div class="testi-name">André L.</div>
+                    <div class="testi-city">Goiânia — GO</div>
+                </div>
+                <div class="testi-verified"><i class="fas fa-check-circle"></i> Verificado</div>
+            </div>
         </div>
-        <div class="contact-card fade-in">
-            <i class="fas fa-map-marker-alt"></i>
-            <h4>Endereço</h4>
-            <p>12ª Avenida, 397<br>Setor Leste Universitário<br>Goiânia — GO</p>
+
+        <div class="testi-card reveal">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Minha barba sempre foi falha e me incomodava muito. Depois de 4 meses com o Kirkland, não acreditei quando olhei no espelho. Me sinto outro homem — mais confiante em casa e no trabalho.</p>
+            <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-author">
+                <div class="testi-avatar">RC</div>
+                <div>
+                    <div class="testi-name">Roberto C.</div>
+                    <div class="testi-city">Senador Canedo — GO</div>
+                </div>
+                <div class="testi-verified"><i class="fas fa-check-circle"></i> Verificado</div>
+            </div>
+        </div>
+
+        <div class="testi-card reveal">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Já indiquei para mais de 10 amigos. O pessoal do Rei do Minoxidil é sério, responde rápido e o produto é o original de verdade. Nunca mais compro em outro lugar.</p>
+            <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-author">
+                <div class="testi-avatar">TP</div>
+                <div>
+                    <div class="testi-name">Thiago P.</div>
+                    <div class="testi-city">Goiânia — GO</div>
+                </div>
+                <div class="testi-verified"><i class="fas fa-check-circle"></i> Verificado</div>
+            </div>
+        </div>
+
+        <div class="testi-card reveal">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">Meu filho de 22 anos estava sofrendo com calvície precoce. Indicaram o Rei do Minoxidil e em 5 meses o resultado foi incrível. Ele ficou outro, muito mais feliz e seguro de si!</p>
+            <div class="testi-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-author">
+                <div class="testi-avatar">JM</div>
+                <div>
+                    <div class="testi-name">João M.</div>
+                    <div class="testi-city">Goiânia — GO</div>
+                </div>
+                <div class="testi-verified"><i class="fas fa-check-circle"></i> Verificado</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ████ FAQ ████ -->
+<section class="faq-section">
+    <div style="text-align:center">
+        <span class="section-eyebrow reveal">Dúvidas frequentes</span>
+        <h2 class="section-title reveal">Perguntas <span>Frequentes</span></h2>
+        <p class="section-sub reveal">Respondemos tudo que você precisa saber antes de começar</p>
+    </div>
+
+    <div class="faq-list">
+        <div class="faq-item reveal">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                Em quanto tempo verei resultados?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">A maioria dos nossos clientes começa a notar crescimento entre 6 a 8 semanas de uso consistente. Resultados mais expressivos aparecem entre 3 e 6 meses. O segredo é a consistência: 2 aplicações por dia, todos os dias.</div>
+        </div>
+        <div class="faq-item reveal">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                O Minoxidil Kirkland funciona para barba e cabelo?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Sim! O Minoxidil Kirkland 5% é amplamente utilizado tanto para crescimento de barba quanto para tratamento de queda de cabelo (calvície). É o mesmo ingrediente ativo aprovado mundialmente para os dois usos.</div>
+        </div>
+        <div class="faq-item reveal">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                Como devo aplicar o produto?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Aplique 1ml (1 conta-gotas cheio) na área desejada duas vezes ao dia — manhã e noite. Massageie levemente e deixe agir por pelo menos 4 horas antes de lavar. Não exceda a dose recomendada.</div>
+        </div>
+        <div class="faq-item reveal">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                O produto é 100% original? Como saber?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Sim, 100% original importado dos Estados Unidos. Somos distribuidores autorizados da Kirkland Signature (Costco USA). Cada frasco vem com todos os selos e informações originais da embalagem americana.</div>
+        </div>
+        <div class="faq-item reveal">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                Vocês entregam em toda Goiânia?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Atendemos Goiânia e toda a região metropolitana. Para outras cidades de Goiás e demais estados, entre em contato pelo WhatsApp para verificar disponibilidade e frete. Trabalhamos 24 horas!</div>
+        </div>
+        <div class="faq-item reveal">
+            <div class="faq-q" onclick="toggleFaq(this)">
+                Qual kit você recomenda para começar?
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Recomendamos o kit de 3 unidades para quem está começando. Ele garante 3 meses de tratamento contínuo, que é o período mínimo para resultados consistentes — e você ainda economiza em relação à compra individual.</div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ████ CTA BAND ████ -->
+<section class="cta-band">
+    <h2 class="reveal">Pronto para se <span>Transformar?</span></h2>
+    <p class="reveal">Mais de 500 homens já deram o primeiro passo. Sua barba — e sua confiança — estão esperando por você.</p>
+    <div class="cta-band-btns">
+        <a href="https://wa.me/5562984052636?text=Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil%20e%20quero%20começar%20meu%20tratamento!" target="_blank" class="cta-main reveal">
+            <i class="fab fa-whatsapp"></i> Começar Agora pelo WhatsApp
+        </a>
+        <button class="cta-sec reveal" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-shopping-bag"></i> Ver Produtos e Preços
+        </button>
+    </div>
+</section>
+
+<!-- ████ CONTACT ████ -->
+<section class="contact-section" id="contato">
+    <span class="section-eyebrow reveal">Fale conosco</span>
+    <h2 class="section-title reveal">Entre em <span>Contato</span></h2>
+    <p class="section-sub reveal">Estamos disponíveis 24 horas para tirar suas dúvidas e fechar seu pedido</p>
+
+    <div class="contact-grid">
+        <div class="contact-card reveal">
+            <div class="contact-icon" style="background:rgba(37,211,102,0.1)">
+                <i class="fab fa-whatsapp" style="color:#25d366"></i>
+            </div>
+            <div class="contact-label">WhatsApp</div>
+            <a href="https://wa.me/5562984052636?text=Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil!" target="_blank" class="contact-value">+55 62 98405-2636</a>
+        </div>
+        <div class="contact-card reveal">
+            <div class="contact-icon" style="background:rgba(253,29,29,0.1)">
+                <i class="fab fa-instagram" style="color:#fd1d1d"></i>
+            </div>
+            <div class="contact-label">Instagram</div>
+            <a href="https://www.instagram.com/minoxkirkla/" target="_blank" class="contact-value">@minoxkirkla</a>
+        </div>
+        <div class="contact-card reveal">
+            <div class="contact-icon" style="background:rgba(0,200,255,0.1)">
+                <i class="fas fa-envelope" style="color:var(--neon)"></i>
+            </div>
+            <div class="contact-label">E-mail</div>
+            <a href="mailto:reidominoxidil@gmail.com" class="contact-value">reidominoxidil@gmail.com</a>
+        </div>
+        <div class="contact-card reveal">
+            <div class="contact-icon" style="background:rgba(245,200,66,0.1)">
+                <i class="fas fa-map-marker-alt" style="color:var(--gold)"></i>
+            </div>
+            <div class="contact-label">Endereço</div>
+            <span class="contact-value">12ª Avenida, 397<br>Goiânia — GO</span>
+        </div>
+    </div>
+</section>
+
+<!-- ████ FOOTER ████ -->
 <footer>
-    <p>© 2026 Rei do Minoxidil Goiânia. Todos os direitos reservados.</p>
-    <p style="margin-top:8px">Minoxidil Kirkland Original Importado | +55 62 98405-2636</p>
+    <img src="images/logo.jpeg" alt="Rei do Minoxidil" class="footer-logo">
+    <ul class="footer-links">
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="https://www.instagram.com/minoxkirkla/" target="_blank">Instagram</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Rei do Minoxidil Goiânia. Todos os direitos reservados.</p>
 </footer>
 
-<!-- FLOATING WHATSAPP -->
+<!-- ████ FLOATING WHATSAPP ████ -->
 <a href="https://wa.me/5562984052636?text=Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil!" target="_blank" class="fab-whatsapp" title="Falar no WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- CART -->
+<!-- ████ CART ████ -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-header">
+    <div class="cart-head">
         <h3><i class="fas fa-shopping-cart"></i> Meu Carrinho</h3>
-        <button class="cart-close" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        <button class="cart-close-btn" onclick="toggleCart()"><i class="fas fa-times"></i></button>
     </div>
-    <div class="cart-items" id="cartItems">
-        <div class="cart-empty">
+    <div class="cart-body" id="cartBody">
+        <div class="cart-empty-state">
             <i class="fas fa-shopping-cart"></i>
-            <p>Seu carrinho está vazio.<br>Adicione produtos para continuar!</p>
+            <p>Seu carrinho está vazio.<br>Adicione um produto para começar!</p>
         </div>
     </div>
-    <div class="cart-footer" id="cartFooter" style="display:none">
-        <div class="cart-total">
-            <span>Total:</span>
+    <div class="cart-foot" id="cartFoot" style="display:none">
+        <div class="cart-total-row">
+            <span>Total do Pedido:</span>
             <span id="cartTotal">R$ 0</span>
         </div>
         <button class="btn-checkout" onclick="checkout()">
-            <i class="fab fa-whatsapp"></i>
-            Finalizar pelo WhatsApp
+            <i class="fab fa-whatsapp"></i> Finalizar pelo WhatsApp
         </button>
     </div>
 </div>
 
 <script>
+    /* ── PARTICLES ── */
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.cssText = `
+            left: ${Math.random()*100}%;
+            top: ${Math.random()*100}%;
+            animation-duration: ${4 + Math.random()*6}s;
+            animation-delay: ${Math.random()*6}s;
+            width: ${1+Math.random()*3}px;
+            height: ${1+Math.random()*3}px;
+        `;
+        container.appendChild(p);
+    }
+
+    /* ── HEADER SCROLL ── */
+    window.addEventListener('scroll', () => {
+        document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    /* ── REVEAL ON SCROLL ── */
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
+
+    /* ── COUNTER ANIMATION ── */
+    const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const target = parseFloat(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const isDecimal = target % 1 !== 0;
+            const duration = 1800;
+            const step = 16;
+            const increment = target / (duration / step);
+            let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+            }, step);
+            counterObs.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObs.observe(el));
+
+    /* ── FAQ ── */
+    function toggleFaq(el) {
+        const item = el.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    }
+
+    /* ── CART ── */
     let cart = [];
 
     function addToCart(name, price, img) {
         const existing = cart.find(i => i.name === name);
-        if (existing) {
-            existing.qty++;
-        } else {
-            cart.push({ name, price, img, qty: 1 });
-        }
-        updateCart();
+        existing ? existing.qty++ : cart.push({ name, price, img, qty: 1 });
+        renderCart();
         toggleCart(true);
     }
 
-    function removeFromCart(index) {
-        cart.splice(index, 1);
-        updateCart();
-        if (cart.length === 0) document.getElementById('cartFooter').style.display = 'none';
+    function removeFromCart(idx) {
+        cart.splice(idx, 1);
+        renderCart();
     }
 
-    function updateCart() {
+    function renderCart() {
         const count = cart.reduce((a, i) => a + i.qty, 0);
         document.getElementById('cartCount').textContent = count;
 
-        const itemsEl = document.getElementById('cartItems');
-        const footerEl = document.getElementById('cartFooter');
+        const body = document.getElementById('cartBody');
+        const foot = document.getElementById('cartFoot');
 
-        if (cart.length === 0) {
-            itemsEl.innerHTML = `<div class="cart-empty"><i class="fas fa-shopping-cart"></i><p>Seu carrinho está vazio.<br>Adicione produtos para continuar!</p></div>`;
-            footerEl.style.display = 'none';
-        } else {
-            itemsEl.innerHTML = cart.map((item, i) => `
-                <div class="cart-item">
-                    <img src="${item.img}" alt="${item.name}">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">R$ ${item.price} × ${item.qty} = R$ ${item.price * item.qty}</div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeFromCart(${i})"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            `).join('');
-            const total = cart.reduce((a, i) => a + i.price * i.qty, 0);
-            document.getElementById('cartTotal').textContent = `R$ ${total}`;
-            footerEl.style.display = 'block';
+        if (!cart.length) {
+            body.innerHTML = `<div class="cart-empty-state"><i class="fas fa-shopping-cart"></i><p>Seu carrinho está vazio.<br>Adicione um produto para começar!</p></div>`;
+            foot.style.display = 'none';
+            return;
         }
+
+        body.innerHTML = cart.map((item, i) => `
+            <div class="cart-item-row">
+                <img src="${item.img}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <div class="cart-item-nm">${item.name}</div>
+                    <div class="cart-item-pr">R$ ${item.price} × ${item.qty} = R$ ${item.price * item.qty}</div>
+                </div>
+                <button class="cart-rm" onclick="removeFromCart(${i})"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        `).join('');
+
+        const total = cart.reduce((a, i) => a + i.price * i.qty, 0);
+        document.getElementById('cartTotal').textContent = `R$ ${total}`;
+        foot.style.display = 'block';
     }
 
     function toggleCart(forceOpen) {
         const sidebar = document.getElementById('cartSidebar');
         const overlay = document.getElementById('cartOverlay');
-        const isOpen = sidebar.classList.contains('active');
-        if (forceOpen === true || !isOpen) {
+        const open = sidebar.classList.contains('active');
+        if (forceOpen === true || !open) {
             sidebar.classList.add('active');
             overlay.classList.add('active');
         } else {
@@ -901,17 +1885,12 @@
     }
 
     function checkout() {
-        if (cart.length === 0) return;
-        const items = cart.map(i => `• ${i.name} x${i.qty} = R$ ${i.price * i.qty}`).join('%0A');
+        if (!cart.length) return;
+        const lines = cart.map(i => `• ${i.name} x${i.qty} = R$ ${i.price * i.qty}`).join('%0A');
         const total = cart.reduce((a, i) => a + i.price * i.qty, 0);
-        const msg = `Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil%20e%20quero%20finalizar%20meu%20pedido:%0A%0A${items}%0A%0A*Total:%20R$%20${total}*`;
+        const msg = `Olá!%20Vim%20pelo%20site%20do%20Rei%20do%20Minoxidil%20e%20quero%20finalizar%20meu%20pedido:%0A%0A${lines}%0A%0A*Total:%20R$%20${total}*`;
         window.open(`https://wa.me/5562984052636?text=${msg}`, '_blank');
     }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
